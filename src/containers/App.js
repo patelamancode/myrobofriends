@@ -2,7 +2,7 @@ import React from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
-import './App.css'
+import './App.css';
 
 
 
@@ -18,10 +18,11 @@ class App extends React.Component {
 
     
     componentDidMount() {
-        fetch("https://jsonplaceholder.typicode.com/users")
-          .then(response => response.json())
-          .then(users => this.setstate({robots: users}));
+        fetch('https://jsonplaceholder.typicode.com/users')
+          .then(response=> response.json())
+          .then(users => {this.setState({robots: users})});
     }
+    
 
 
     onSearchChange = (event) => {
@@ -31,7 +32,7 @@ class App extends React.Component {
     render(){
         const {robots, searchfield} = this.state;
         const filteredRobots = robots.filter(robot => {
-            return robot.name.toLowerCase().includes(searchfield.toLowerCase())
+            return robot.name.toLowerCase().includes(searchfield.toLowerCase());
         })
         return !robots.length ? 
         <h1 className='tc'>Please wait server is Loading...</h1> :
