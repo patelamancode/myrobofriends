@@ -2,6 +2,7 @@ import React from 'react';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
 import {robots} from './robots';
+import './App.css'
 
 // this is first expression before constructor
 // const state = {
@@ -15,13 +16,15 @@ class App extends React.Component {
     constructor() {
         super()
         this.state = {
-          robots: robots,
+          robots: [],
           searchfield: ''
         }
     }
 
     
-
+    componentDidMount() {
+        console.log(hoiijoi);
+    }
 
 
     onSearchChange = (event) => {
@@ -35,7 +38,7 @@ class App extends React.Component {
 
         return (
             <div className='tc '>
-              <h1>Robofriends</h1>
+              <h1 className='f1'>Robofriends</h1>
               <SearchBox searchchange = {this.onSearchChange}/>
               <CardList robots={filteredRobots}/>
             </div>
